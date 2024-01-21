@@ -1,0 +1,15 @@
+Array.prototype.some = function(callback, thisArg) {
+  for (var i = 0; i < this.length; i++) {
+    if (callback.call(thisArg, this[i], i, this)) {
+      return true;
+    }
+  }
+  return false;
+};
+
+// Array.prototype.some 예시
+var numbers = [11, 12, 13, 14, 15];
+var Even = numbers.some(function(number) {
+  return number % 2 === 0;
+});
+console.log(Even); // true

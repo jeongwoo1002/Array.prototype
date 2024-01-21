@@ -1,0 +1,16 @@
+Array.prototype.every = function(callback, thisArg) {
+  for (var i = 0; i < this.length; i++) {
+    if (!callback.call(thisArg, this[i], i, this)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+
+// Array.prototype.every 예시
+var numbers = [11, 12, 13, 14, 15];
+var Odd = numbers.every(function(number) {
+  return number % 2 === 1;
+});
+console.log(Odd); // false

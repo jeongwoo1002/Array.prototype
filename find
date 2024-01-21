@@ -1,0 +1,15 @@
+Array.prototype.find = function(callback, thisArg) {
+  for (var i = 0; i < this.length; i++) {
+    if (callback.call(thisArg, this[i], i, this)) {
+      return this[i];
+    }
+  }
+  return undefined;
+};
+
+// Array.prototype.find 예시
+var numbers = [11, 12, 13, 14, 15];
+var FirstEven = numbers.find(function(number) {
+  return number % 2 === 0;
+});
+console.log(FirstEven); // 12

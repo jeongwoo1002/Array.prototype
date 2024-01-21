@@ -1,0 +1,16 @@
+Array.prototype.filter = function(callback, thisArg) {
+  var result = [];
+  for (var i = 0; i < this.length; i++) {
+    if (callback.call(thisArg, this[i], i, this)) {
+      result.push(this[i]);
+    }
+  }
+  return result;
+};
+
+// Array.prototype.filter 예시
+var words = ["Hello", "My", "name", "is", "Jeong Woo"];
+var longWords = words.filter(function(word) {
+  return word.length > 4;
+});
+console.log(longWords); // ["hello", "jeong woo"]

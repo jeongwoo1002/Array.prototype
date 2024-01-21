@@ -1,0 +1,13 @@
+Array.prototype.flatMap = function(callback, thisArg) {
+  return this.map(callback, thisArg).reduce(function(prev, curr) {
+    return prev.concat(curr);
+  }, []);
+};
+
+
+// Array.prototype.flatMap 예시
+var words = ["Hello ", "My ", "name ", "is ", "Jeong Woo"];
+var chars = words.flatMap(function(word) {
+  return word.split("");
+});
+console.log(chars);  //['H', 'e', 'l', 'l', 'o', ' ', 'M', 'y', ' ', 'n', 'a', 'm', 'e', ' ', 'i', 's', ' ', 'J', 'e', 'o', 'n', 'g', ' ', 'W', 'o', 'o']
